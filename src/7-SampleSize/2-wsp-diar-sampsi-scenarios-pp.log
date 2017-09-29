@@ -1,0 +1,724 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/benarnold/dropbox/articles/wsp-recall/programs/final/7-sample
+> size/2-wsp-diar-sampsi-scenarios-pp.log
+  log type:  text
+ opened on:  25 May 2012, 08:31:38
+
+. 
+. 
+. *---------------------------------------------
+. * Program      : 2-wsp-diar-sampsi-scenarios-pp.do
+. * Programmer   : Ben Arnold
+. * Date         : 11 Mar 2011
+. * Description  :
+. /*
+> 
+> Summarize diarrhea characteristics for 
+> WSP datasets to inform recall calculations
+> and simulations.
+> 
+> */
+. *---------------------------------------------
+. 
+. *---------------------------------------------
+. * Major updates / modifications to the code:
+. *
+. * 21 Feb 2011
+. *---------------------------------------------
+. 
+. 
+. 
+. set mem 500m
+set memory ignored.
+    Memory no longer needs to be set in modern Statas; memory adjustments are
+    performed on the fly automatically.
+
+. 
+. 
+. *---------------------------------------------
+. * Calculate summary stats for each country
+. *---------------------------------------------
+. 
+. *
+. 
+. tempname memhold
+
+. tempfile results
+
+. postfile `memhold' str30 data str2 day corr using `results'
+
+. 
+. * INDIA HP
+. use "~/dropbox/articles/wsp-recall/data/wsp-recall-data.dta", clear
+(WSP Baseline, recall article dataset)
+
+. keep if dataset=="India HP"
+(10133 observations deleted)
+
+. gen ID = child
+
+. keep ID diar00 - diar14
+
+. local dd "02 03 04 05 06 07 08 09 10 11 12 13 14"
+
+. foreach d of local dd {
+  2.         di as res _n "Correlation for days 01 - `d'"
+  3.         alpha diar01 - diar`d', std
+  4.         
+.         post `memhold' ("IndiaHP") ("`d'") (r(rho))
+  5. 
+. }
+
+Correlation for days 01 - 02
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.7802
+Number of items in the scale:            2
+Scale reliability coefficient:      0.8765
+
+Correlation for days 01 - 03
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.6438
+Number of items in the scale:            3
+Scale reliability coefficient:      0.8443
+
+Correlation for days 01 - 04
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5438
+Number of items in the scale:            4
+Scale reliability coefficient:      0.8266
+
+Correlation for days 01 - 05
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4933
+Number of items in the scale:            5
+Scale reliability coefficient:      0.8296
+
+Correlation for days 01 - 06
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4457
+Number of items in the scale:            6
+Scale reliability coefficient:      0.8283
+
+Correlation for days 01 - 07
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4084
+Number of items in the scale:            7
+Scale reliability coefficient:      0.8285
+
+Correlation for days 01 - 08
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3848
+Number of items in the scale:            8
+Scale reliability coefficient:      0.8335
+
+Correlation for days 01 - 09
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3645
+Number of items in the scale:            9
+Scale reliability coefficient:      0.8377
+
+Correlation for days 01 - 10
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3549
+Number of items in the scale:           10
+Scale reliability coefficient:      0.8462
+
+Correlation for days 01 - 11
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3437
+Number of items in the scale:           11
+Scale reliability coefficient:      0.8521
+
+Correlation for days 01 - 12
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3467
+Number of items in the scale:           12
+Scale reliability coefficient:      0.8643
+
+Correlation for days 01 - 13
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3392
+Number of items in the scale:           13
+Scale reliability coefficient:      0.8697
+
+Correlation for days 01 - 14
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3410
+Number of items in the scale:           14
+Scale reliability coefficient:      0.8787
+
+. 
+. 
+. * INDIA MP
+. use "~/dropbox/articles/wsp-recall/data/wsp-recall-data.dta", clear
+(WSP Baseline, recall article dataset)
+
+. keep if dataset=="India MP"
+(10038 observations deleted)
+
+. gen ID = child
+
+. keep ID diar00 - diar14
+
+. 
+. local dd "02 03 04 05 06 07 08 09 10 11 12 13 14"
+
+. foreach d of local dd {
+  2.         di as res _n "Correlation for days 01 - `d'"
+  3.         alpha diar01 - diar`d', std
+  4.         
+.         post `memhold' ("IndiaMP") ("`d'") (r(rho))
+  5. 
+. }
+
+Correlation for days 01 - 02
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.7738
+Number of items in the scale:            2
+Scale reliability coefficient:      0.8725
+
+Correlation for days 01 - 03
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.7097
+Number of items in the scale:            3
+Scale reliability coefficient:      0.8800
+
+Correlation for days 01 - 04
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.6357
+Number of items in the scale:            4
+Scale reliability coefficient:      0.8747
+
+Correlation for days 01 - 05
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5785
+Number of items in the scale:            5
+Scale reliability coefficient:      0.8728
+
+Correlation for days 01 - 06
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5438
+Number of items in the scale:            6
+Scale reliability coefficient:      0.8773
+
+Correlation for days 01 - 07
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5202
+Number of items in the scale:            7
+Scale reliability coefficient:      0.8836
+
+Correlation for days 01 - 08
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4878
+Number of items in the scale:            8
+Scale reliability coefficient:      0.8840
+
+Correlation for days 01 - 09
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4435
+Number of items in the scale:            9
+Scale reliability coefficient:      0.8776
+
+Correlation for days 01 - 10
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4108
+Number of items in the scale:           10
+Scale reliability coefficient:      0.8746
+
+Correlation for days 01 - 11
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3753
+Number of items in the scale:           11
+Scale reliability coefficient:      0.8686
+
+Correlation for days 01 - 12
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3510
+Number of items in the scale:           12
+Scale reliability coefficient:      0.8665
+
+Correlation for days 01 - 13
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3358
+Number of items in the scale:           13
+Scale reliability coefficient:      0.8680
+
+Correlation for days 01 - 14
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3281
+Number of items in the scale:           14
+Scale reliability coefficient:      0.8724
+
+. 
+. 
+. * INDONESIA
+. use "~/dropbox/articles/wsp-recall/data/wsp-recall-data.dta", clear
+(WSP Baseline, recall article dataset)
+
+. keep if dataset=="Indonesia"
+(10093 observations deleted)
+
+. gen ID = child
+
+. keep ID diar00 - diar14
+
+. 
+. local dd "02 03 04 05 06 07 08 09 10 11 12 13 14"
+
+. foreach d of local dd {
+  2.         di as res _n "Correlation for days 01 - `d'"
+  3.         alpha diar01 - diar`d', std
+  4.         
+.         post `memhold' ("Indonesia") ("`d'") (r(rho))
+  5. 
+. }
+
+Correlation for days 01 - 02
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.7570
+Number of items in the scale:            2
+Scale reliability coefficient:      0.8617
+
+Correlation for days 01 - 03
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.6532
+Number of items in the scale:            3
+Scale reliability coefficient:      0.8497
+
+Correlation for days 01 - 04
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.6174
+Number of items in the scale:            4
+Scale reliability coefficient:      0.8659
+
+Correlation for days 01 - 05
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5868
+Number of items in the scale:            5
+Scale reliability coefficient:      0.8765
+
+Correlation for days 01 - 06
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5557
+Number of items in the scale:            6
+Scale reliability coefficient:      0.8824
+
+Correlation for days 01 - 07
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5174
+Number of items in the scale:            7
+Scale reliability coefficient:      0.8824
+
+Correlation for days 01 - 08
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4478
+Number of items in the scale:            8
+Scale reliability coefficient:      0.8664
+
+Correlation for days 01 - 09
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4087
+Number of items in the scale:            9
+Scale reliability coefficient:      0.8615
+
+Correlation for days 01 - 10
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3845
+Number of items in the scale:           10
+Scale reliability coefficient:      0.8620
+
+Correlation for days 01 - 11
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3505
+Number of items in the scale:           11
+Scale reliability coefficient:      0.8558
+
+Correlation for days 01 - 12
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3311
+Number of items in the scale:           12
+Scale reliability coefficient:      0.8559
+
+Correlation for days 01 - 13
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3205
+Number of items in the scale:           13
+Scale reliability coefficient:      0.8598
+
+Correlation for days 01 - 14
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3168
+Number of items in the scale:           14
+Scale reliability coefficient:      0.8665
+
+. 
+. 
+. * PERU
+. use "~/dropbox/articles/wsp-recall/data/wsp-recall-data.dta", clear
+(WSP Baseline, recall article dataset)
+
+. keep if dataset=="Peru"
+(8483 observations deleted)
+
+. gen ID = child
+
+. keep ID diar00 - diar14
+
+. 
+. local dd "02 03 04 05 06 07 08 09 10 11 12 13 14"
+
+. foreach d of local dd {
+  2.         di as res _n "Correlation for days 01 - `d'"
+  3.         alpha diar01 - diar`d', std
+  4.         
+.         post `memhold' ("Peru") ("`d'") (r(rho))
+  5. 
+. }
+
+Correlation for days 01 - 02
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.7502
+Number of items in the scale:            2
+Scale reliability coefficient:      0.8573
+
+Correlation for days 01 - 03
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.6705
+Number of items in the scale:            3
+Scale reliability coefficient:      0.8593
+
+Correlation for days 01 - 04
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5813
+Number of items in the scale:            4
+Scale reliability coefficient:      0.8474
+
+Correlation for days 01 - 05
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5191
+Number of items in the scale:            5
+Scale reliability coefficient:      0.8437
+
+Correlation for days 01 - 06
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4827
+Number of items in the scale:            6
+Scale reliability coefficient:      0.8485
+
+Correlation for days 01 - 07
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4576
+Number of items in the scale:            7
+Scale reliability coefficient:      0.8552
+
+Correlation for days 01 - 08
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4104
+Number of items in the scale:            8
+Scale reliability coefficient:      0.8478
+
+Correlation for days 01 - 09
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3763
+Number of items in the scale:            9
+Scale reliability coefficient:      0.8445
+
+Correlation for days 01 - 10
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3560
+Number of items in the scale:           10
+Scale reliability coefficient:      0.8468
+
+Correlation for days 01 - 11
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3455
+Number of items in the scale:           11
+Scale reliability coefficient:      0.8531
+
+Correlation for days 01 - 12
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3417
+Number of items in the scale:           12
+Scale reliability coefficient:      0.8617
+
+Correlation for days 01 - 13
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3403
+Number of items in the scale:           13
+Scale reliability coefficient:      0.8702
+
+Correlation for days 01 - 14
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.3394
+Number of items in the scale:           14
+Scale reliability coefficient:      0.8779
+
+. 
+. 
+. * SENEGAL
+. use "~/dropbox/articles/wsp-recall/data/wsp-recall-data.dta", clear
+(WSP Baseline, recall article dataset)
+
+. keep if dataset=="Senegal"
+(10017 observations deleted)
+
+. gen ID = child
+
+. keep ID diar00 - diar14
+
+. 
+. local dd "02 03 04 05 06 07 08 09 10 11 12 13 14"
+
+. foreach d of local dd {
+  2.         di as res _n "Correlation for days 01 - `d'"
+  3.         alpha diar01 - diar`d', std
+  4.         
+.         post `memhold' ("Senegal") ("`d'") (r(rho))
+  5. 
+. }
+
+Correlation for days 01 - 02
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.8121
+Number of items in the scale:            2
+Scale reliability coefficient:      0.8963
+
+Correlation for days 01 - 03
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.7635
+Number of items in the scale:            3
+Scale reliability coefficient:      0.9064
+
+Correlation for days 01 - 04
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.6943
+Number of items in the scale:            4
+Scale reliability coefficient:      0.9008
+
+Correlation for days 01 - 05
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.6435
+Number of items in the scale:            5
+Scale reliability coefficient:      0.9003
+
+Correlation for days 01 - 06
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5951
+Number of items in the scale:            6
+Scale reliability coefficient:      0.8982
+
+Correlation for days 01 - 07
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5534
+Number of items in the scale:            7
+Scale reliability coefficient:      0.8966
+
+Correlation for days 01 - 08
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.5223
+Number of items in the scale:            8
+Scale reliability coefficient:      0.8974
+
+Correlation for days 01 - 09
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4961
+Number of items in the scale:            9
+Scale reliability coefficient:      0.8986
+
+Correlation for days 01 - 10
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4787
+Number of items in the scale:           10
+Scale reliability coefficient:      0.9018
+
+Correlation for days 01 - 11
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4580
+Number of items in the scale:           11
+Scale reliability coefficient:      0.9029
+
+Correlation for days 01 - 12
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4445
+Number of items in the scale:           12
+Scale reliability coefficient:      0.9057
+
+Correlation for days 01 - 13
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4352
+Number of items in the scale:           13
+Scale reliability coefficient:      0.9092
+
+Correlation for days 01 - 14
+
+Test scale = mean(standardized items)
+
+Average interitem correlation:      0.4307
+Number of items in the scale:           14
+Scale reliability coefficient:      0.9137
+
+. 
+. 
+. *---------------------------------------------
+. * Retrieve results
+. *---------------------------------------------
+. postclose `memhold'
+
+. use `results', clear
+
+. 
+. reshape wide corr, i(data) j(day, str)
+(note: j = 02 03 04 05 06 07 08 09 10 11 12 13 14)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                       65   ->       5
+Number of variables                   3   ->      14
+j variable (13 values)              day   ->   (dropped)
+xij variables:
+                                   corr   ->   corr02 corr03 ... corr14
+-----------------------------------------------------------------------------
+
+. 
+. saveold "~/dropbox/articles/wsp-recall/tables/rawoutput/diar-daily-corr.dta", r
+> eplace
+file ~/dropbox/articles/wsp-recall/tables/rawoutput/diar-daily-corr.dta saved
+
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/benarnold/dropbox/articles/wsp-recall/programs/final/7-sample
+> size/2-wsp-diar-sampsi-scenarios-pp.log
+  log type:  text
+ closed on:  25 May 2012, 08:31:41
+---------------------------------------------------------------------------------

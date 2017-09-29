@@ -1,0 +1,165 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/benarnold/dropbox/articles/wsp-recall/programs/final/1-descri
+> ptive/0-wsp-optimrecall-summary-char.log
+  log type:  text
+ opened on:  24 May 2012, 12:14:15
+
+. 
+. 
+. *---------------------------------------------
+. * Program      : 0-wsp-optimrecall-summary-char
+. * Programmer   : Ben Arnold
+. * Date         : 15 Aug 2011
+. * Description  :
+. /*
+> 
+> Summarize child and household characteristics
+> for Table 1 of the manuscript (not including
+> symptom summary statistics)
+> 
+> */
+. *---------------------------------------------
+. 
+. 
+. *---------------------------------------------
+. * Calculate summary stats for each country
+. *---------------------------------------------
+. 
+. use "~/dropbox/articles/wsp-recall/data/wsp-recall-data.dta", clear
+(WSP Baseline, recall article dataset)
+
+. 
+. 
+. * INDIA HP
+. sum agemth female cbf anemia haz2 waz2 if dataset=="India HP"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+      agemth |      2058    11.88257    6.777084   .0328542   23.98357
+      female |      2058    .4776482    .4996215          0          1
+         cbf |      2058    .6608358    .4735407          0          1
+      anemia |      1580    .3556962    .4788753          0          1
+        haz2 |      1972    .2611562    .4393763          0          1
+-------------+--------------------------------------------------------
+        waz2 |      1934    .1944157    .3958526          0          1
+
+. sum elec soil biof JMPH2O JMPsan if dataset=="India HP"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+        elec |      2058    .9480078    .2220653          0          1
+        soil |      2058    .3177843    .4657283          0          1
+        biof |      2058    .7944606    .4041934          0          1
+      JMPH2O |      2058    .8984451    .3021355          0          1
+      JMPsan |      2058    .3197279    .4664844          0          1
+
+. 
+. * INDIA MP
+. sum agemth female cbf anemia haz2 waz2 if dataset=="India MP"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+      agemth |      2153     11.6573     6.46321   .0328542   23.98357
+      female |      2153     .489085     .499997          0          1
+         cbf |      2153    .8648398    .3419741          0          1
+      anemia |      1843    .3060228    .4609644          0          1
+        haz2 |      2029    .4430754    .4968715          0          1
+-------------+--------------------------------------------------------
+        waz2 |      2067     .478955    .4996778          0          1
+
+. sum elec soil biof JMPH2O JMPsan if dataset=="India MP"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+        elec |      2153    .8067812    .3949148          0          1
+        soil |      2153    .7640502    .4246896          0          1
+        biof |      2153    .9075708    .2896981          0          1
+      JMPH2O |      2153      .84719    .3598879          0          1
+      JMPsan |      2152    .1370818    .3440136          0          1
+
+. 
+. * INDONESIA
+. sum agemth female cbf anemia haz2 waz2 if dataset=="Indonesia"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+      agemth |      2098    11.87821    6.270804   .0985626   23.98357
+      female |      2098    .4923737     .500061          0          1
+         cbf |      2098    .7998093    .4002383          0          1
+      anemia |      1587    .7101449     .453838          0          1
+        haz2 |      2094    .2077364     .405784          0          1
+-------------+--------------------------------------------------------
+        waz2 |      2086      .13279     .339429          0          1
+
+. sum elec soil biof JMPH2O JMPsan if dataset=="Indonesia"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+        elec |      2098    .9880839    .1085345          0          1
+        soil |      2098    .2483317    .4321482          0          1
+        biof |      2098    .7383222    .4396529          0          1
+      JMPH2O |      2097    .8726753    .3334159          0          1
+      JMPsan |      2098     .486654     .499941          0          1
+
+. 
+. 
+. * PERU
+. sum agemth female cbf anemia haz2 waz2 if dataset=="Peru"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+      agemth |      3708    11.85652    6.864913   .0328542   23.98357
+      female |      3708    .4851672    .4998473          0          1
+         cbf |      3708    .8384574    .3680803          0          1
+      anemia |      3050    .4088525    .4917025          0          1
+        haz2 |      3679    .2788801    .4485094          0          1
+-------------+--------------------------------------------------------
+        waz2 |      3702    .1010265    .3014045          0          1
+
+. sum elec soil biof JMPH2O JMPsan if dataset=="Peru"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+        elec |      3708    .6987594    .4588589          0          1
+        soil |      3708    .6922869    .4616094          0          1
+        biof |      3708    .6855448    .4643612          0          1
+      JMPH2O |      3707    .7502023    .4329542          0          1
+      JMPsan |      3706    .4001619    .4899971          0          1
+
+. 
+. * SENEGAL
+. sum agemth female cbf anemia haz2 waz2 if dataset=="Senegal"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+      agemth |      2174    11.94309    6.794165   .0328542   23.98357
+      female |      2174    .4622815      .49869          0          1
+         cbf |      2174    .8049678    .3963167          0          1
+      anemia |      1597    .9079524    .2891837          0          1
+        haz2 |      2155     .112761    .3163739          0          1
+-------------+--------------------------------------------------------
+        waz2 |      2160    .0949074    .2931549          0          1
+
+. sum elec soil biof JMPH2O JMPsan if dataset=="Senegal"
+
+    Variable |       Obs        Mean    Std. Dev.       Min        Max
+-------------+--------------------------------------------------------
+        elec |      2174    .3767249    .4846765          0          1
+        soil |      2174      .25069      .43351          0          1
+        biof |      2174    .7658694    .4235516          0          1
+      JMPH2O |      2169     .692024     .461763          0          1
+      JMPsan |      2168    .7075646    .4549862          0          1
+
+. 
+. 
+. 
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/benarnold/dropbox/articles/wsp-recall/programs/final/1-descri
+> ptive/0-wsp-optimrecall-summary-char.log
+  log type:  text
+ closed on:  24 May 2012, 12:14:15
+---------------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+---------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/benarnold/dropbox/articles/wsp-recall/programs/final/1-descri
+> ptive/1-wsp-cough-diagnostics.log
+  log type:  text
+ opened on:  24 May 2012, 12:15:21
+
+. 
+end of do-file
+
+. do "/Users/benarnold/Dropbox/articles/wsp-recall/programs/FINAL/1-descriptive/2
+> -wsp-diar-diagnostics.do"
+
+. capture log close
